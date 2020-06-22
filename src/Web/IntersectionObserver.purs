@@ -1,4 +1,4 @@
-module Web.InteractionObserver where
+module Web.IntersectionObserver where
 
 import Prelude
 

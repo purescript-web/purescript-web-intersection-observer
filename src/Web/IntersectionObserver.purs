@@ -15,10 +15,6 @@ import Web.IntersectionObserverEntry (IntersectionObserverEntry)
 
 data IntersectionObserver
 
-type IntersectionObserverCallback' = EFn.EffectFn2 (Array IntersectionObserverEntry) IntersectionObserver Unit
-
-type IntersectionObserverCallback = Array IntersectionObserverEntry -> IntersectionObserver -> Effect Unit
-
 type IntersectionObserverInit' =
   { root :: Nullable Web.DOM.Node
   , rootMargin :: String
@@ -56,12 +52,12 @@ defaultIntersectionObserverInit =
   , thresholds: [0.0]
   }
 
-foreign import _create :: EFn.EffectFn2 IntersectionObserverCallback' IntersectionObserverInit' IntersectionObserver
+foreign import _create :: EFn.EffectFn2 (EFn.EffectFn2 (Array IntersectionObserverEntry) IntersectionObserver Unit) IntersectionObserverInit' IntersectionObserver
 
-create :: IntersectionObserverCallback -> IntersectionObserverInit -> Effect IntersectionObserver
+create :: (Array IntersectionObserverEntry -> IntersectionObserver -> Effect Unit) -> IntersectionObserverInit -> Effect IntersectionObserver
 create callback options =
   let
-    callback' :: IntersectionObserverCallback'
+    callback' :: EFn.EffectFn2 (Array IntersectionObserverEntry) IntersectionObserver Unit
     callback' = EFn.mkEffectFn2 callback
 
     options' :: IntersectionObserverInit'

@@ -20,13 +20,13 @@ type IntersectionObserverInit' =
   , rootMargin :: String
 
   -- | ```js
-  -- | var obs = new IntersectionObserver(() => {}, { thresholds: [] })`
-  -- | console.log(obs.thresholds)
+  -- | var obs = new IntersectionObserver(() => {}, { threshold: [] })`
+  -- | console.log(obs.threshold)
   -- | ```
   -- | will output [0]
   -- |
   -- | so, maybe replace type to `NonEmpty Array Number`?
-  , thresholds :: Array Number
+  , threshold :: Array Number
   }
 
 data IntersectionObserverInitRoot
@@ -42,14 +42,14 @@ intersectionObserverInitRootToInternal (Document document) = toNullable <<< Just
 type IntersectionObserverInit =
   { root :: IntersectionObserverInitRoot
   , rootMargin :: String
-  , thresholds :: Array Number
+  , threshold :: Array Number
   }
 
 defaultIntersectionObserverInit :: IntersectionObserverInit
 defaultIntersectionObserverInit =
   { root: None
   , rootMargin: "0px"
-  , thresholds: [0.0]
+  , threshold: [0.0]
   }
 
 foreign import _create :: EFn.EffectFn2 (EFn.EffectFn2 (Array IntersectionObserverEntry) IntersectionObserver Unit) IntersectionObserverInit' IntersectionObserver

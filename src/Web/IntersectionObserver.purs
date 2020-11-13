@@ -21,9 +21,10 @@ type IntersectionObserverInit' =
 
   -- | ```js
   -- | var obs = new IntersectionObserver(() => {}, { threshold: [] })`
-  -- | console.log(obs.threshold)
-  -- | ```
-  -- | will output [0]
+  -- | console.log(obs.thresholds)
+  -- | > [0]
+  -- | console.log(obs.threshold) -- check documentation, for constuctor it is `threshold`, but for fields - `thresholds`!!
+  -- | > undefined
   -- |
   -- | so, maybe replace type to `NonEmpty Array Number`?
   , threshold :: Array Number

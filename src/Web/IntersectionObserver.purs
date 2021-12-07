@@ -20,7 +20,7 @@ type IntersectionObserverInit' =
   , rootMargin :: String
 
   -- | ```js
-  -- | var obs = new IntersectionObserver(() => {}, { threshold: [] })`
+  -- | var obs = new IntersectionObserver(() => {}, { threshold: [] })
   -- | console.log(obs.thresholds)
   -- | > [0]
   -- | console.log(obs.threshold) -- check documentation, for constuctor it is `threshold`, but for fields - `thresholds`!!

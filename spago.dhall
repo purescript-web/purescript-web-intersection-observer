@@ -2,6 +2,9 @@
 , dependencies =
   [ "console"
   , "effect"
+  , "maybe"
+  , "nullable"
+  , "prelude"
   , "psci-support"
   , "web-dom"
   ]

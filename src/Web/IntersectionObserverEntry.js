@@ -1,33 +1,33 @@
 "use strict";
 
-exports._create = function (options) {
+export function _create(options) {
   return new IntersectionObserverEntry(options);
-};
+}
 
-exports.time = function (entry) {
+export function time(entry) {
   return entry.time;
-};
+}
 
-exports._rootBounds = function (entry) {
+export function _rootBounds(entry) {
   return entry.rootBounds;
-};
+}
 
-exports.boundingClientRect = function (entry) {
+export function boundingClientRect(entry) {
   return entry.boundingClientRect;
-};
+}
 
-exports.intersectionRect = function (entry) {
+export function intersectionRect(entry) {
   return entry.intersectionRect;
-};
+}
 
-exports.isIntersecting = function (entry) {
+export function isIntersecting(entry) {
   return entry.isIntersecting;
-};
+}
 
-exports.intersectionRatio = function (entry) {
+export function intersectionRatio(entry) {
   return entry.intersectionRatio;
-};
+}
 
-exports.target = function (entry) {
+export function target(entry) {
   return entry.target;
-};
+}

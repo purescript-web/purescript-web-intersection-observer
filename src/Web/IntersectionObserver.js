@@ -1,5 +1,3 @@
-"use strict";
-
 export function _create(callback, options) {
   return new IntersectionObserver(callback, options);
 }

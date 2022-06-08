@@ -1,5 +1,3 @@
-"use strict";
-
 export function _create(options) {
   return new IntersectionObserverEntry(options);
 }

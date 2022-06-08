@@ -1,8 +1,5 @@
 let upstream =
-      https://github.com/purescript/package-sets/releases/download/psc-0.13.8-20200615/packages.dhall sha256:5d0cfad9408c84db0a3fdcea2d708f9ed8f64297e164dc57a7cf6328706df93a
+      https://github.com/purescript/package-sets/releases/download/psc-0.15.2-20220531/packages.dhall
+        sha256:278d3608439187e51136251ebf12fabda62d41ceb4bec9769312a08b56f853e3
 
-let overrides = {=}
-
-let additions = {=}
-
-in  upstream // overrides // additions
+in  upstream

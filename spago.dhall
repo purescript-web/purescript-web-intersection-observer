@@ -1,14 +1,13 @@
-{-
-Welcome to a Spago project!
-You can edit this file as you like.
--}
 { name = "web-intersection-observer"
 , dependencies =
   [ "console"
   , "effect"
+  , "maybe"
+  , "nullable"
+  , "prelude"
   , "psci-support"
   , "web-dom"
   ]
 , packages = ./packages.dhall
-, sources = [ "src/**/*.purs", "test/**/*.purs" ]
+, sources = [ "src/**/*.purs" ]
 }

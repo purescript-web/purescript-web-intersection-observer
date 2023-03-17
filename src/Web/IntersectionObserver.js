@@ -1,33 +1,31 @@
-"use strict";
-
-exports._create = function (callback, options) {
+export function _create(callback, options) {
   return new IntersectionObserver(callback, options);
-};
+}
 
-exports.root = function (observer) {
+export function root(observer) {
   return observer.root;
-};
+}
 
-exports.rootMargin = function (observer) {
+export function rootMargin(observer) {
   return observer.rootMargin;
-};
+}
 
-exports.thresholds = function (observer) {
+export function thresholds(observer) {
   return observer.thresholds;
-};
+}
 
-exports._observe = function (observer, target) {
+export function _observe(observer, target) {
   return observer.observe(target);
-};
+}
 
-exports._unobserve = function (observer, target) {
+export function _unobserve(observer, target) {
   return observer.unobserve(target);
-};
+}
 
-exports._disconnect = function (observer) {
+export function _disconnect(observer) {
   return observer.disconnect();
-};
+}
 
-exports._takeRecords = function (observer) {
+export function _takeRecords(observer) {
   return observer.takeRecords();
-};
+}

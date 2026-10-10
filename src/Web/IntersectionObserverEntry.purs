@@ -30,7 +30,6 @@ type DOMRectInit =
   , heigth :: Number
   }
 
-
 type IntersectionObserverEntryInit =
   { time :: DOMHighResTimeStamp
   , rootBounds :: Nullable DOMRectInit

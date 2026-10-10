@@ -37,8 +37,8 @@ data IntersectionObserverInitRoot
 
 intersectionObserverInitRootToInternal :: IntersectionObserverInitRoot -> Nullable Web.DOM.Node
 intersectionObserverInitRootToInternal None = null
-intersectionObserverInitRootToInternal (Element element) = toNullable <<< Just <<<  Web.DOM.Element.toNode $ element
-intersectionObserverInitRootToInternal (Document document) = toNullable <<< Just <<<  Web.DOM.Document.toNode $ document
+intersectionObserverInitRootToInternal (Element element) = toNullable <<< Just <<< Web.DOM.Element.toNode $ element
+intersectionObserverInitRootToInternal (Document document) = toNullable <<< Just <<< Web.DOM.Document.toNode $ document
 
 type IntersectionObserverInit =
   { root :: IntersectionObserverInitRoot
@@ -50,7 +50,7 @@ defaultIntersectionObserverInit :: IntersectionObserverInit
 defaultIntersectionObserverInit =
   { root: None
   , rootMargin: "0px"
-  , threshold: [0.0]
+  , threshold: [ 0.0 ]
   }
 
 foreign import _create :: EFn.EffectFn2 (EFn.EffectFn2 (Array IntersectionObserverEntry) IntersectionObserver Unit) IntersectionObserverInit' IntersectionObserver
@@ -63,7 +63,8 @@ create callback options =
 
     options' :: IntersectionObserverInit'
     options' = options { root = intersectionObserverInitRootToInternal options.root }
-  in EFn.runEffectFn2 _create callback' options'
+  in
+    EFn.runEffectFn2 _create callback' options'
 
 foreign import root :: IntersectionObserver -> Web.DOM.Node
 

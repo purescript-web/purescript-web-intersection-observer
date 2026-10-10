@@ -7,7 +7,7 @@ package:
     - prelude: ">=6.0.0 <7.0.0"
     - web-dom: ">=6.0.0 <7.0.0"
   publish:
-    version: 1.0.0
+    version: 1.0.1
     license: MIT
     location:
       githubOwner: purescript-web
